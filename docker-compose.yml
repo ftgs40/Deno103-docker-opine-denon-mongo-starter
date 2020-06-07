@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  deno:
+    image: "deno-docker:1.0.3"
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    entrypoint: ""
+    command: ["denon", "start"]
+    depends_on: 
+      - mongo
+  
+  mongo:
+    image: mongo:4.2.7-bionic
+    ports:
+        - "27017:27017"
+    volumes:
+        - ./data/mongo:/data/db
+    # environment:
+    #     MONGO_INITDB_ROOT_USERNAME: homestead
+    #     MONGO_INITDB_ROOT_PASSWORD: secret
+    
+# networks:
+#   default:
+#       external:
+#           name: my_network

@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": {
+      "cmd": "deno run server.ts",
+      "desc": "Run server hot reload",
+      "allow": [
+        "net",
+        "read",
+        "write",
+        "plugin"
+      ],
+      "unstable": true
+    }
+  }
+}
